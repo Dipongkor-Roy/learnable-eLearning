@@ -1,0 +1,18 @@
+.hero-top{
+    margin-top:15%;
+    
+
+}
+.text-container{
+    width:50%;
+    margin-left:10% ;
+    margin-right:10% ;
+}
+.down{
+    padding-bottom: 44px;
+    border-bottom:1px solid black ;
+}
+
+.down-btn{
+    margin-top:18px;
+}
