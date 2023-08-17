@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 const Hero = () => {
@@ -17,9 +18,9 @@ const Hero = () => {
               journey like never before
             </p>
             <div className="down">
-              <button className="btn bg-black text-white normal-case px-4 py-3 rounded-2xl hover:bg-black shadow-xl">
+              <Link to='/courses'><button className="btn bg-black text-white normal-case px-4 py-3 rounded-2xl hover:bg-black shadow-xl">
                 Browse Courses
-              </button>
+              </button></Link>
               <button className="lg:mx-3 sm:mx-2 mt-2 btn  text-white normal-case font-thin px-4 py-3 rounded-2xl hover:bg-base bg-gradient-to-r from-indigo-300 via-slate-800 hover:via-slate-900 shadow-xl">
                 Become mentor
               </button>

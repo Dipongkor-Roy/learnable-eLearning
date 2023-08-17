@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CourseCard = ({course}) => {
     const {id,img,title,desc,ratings,price}=course;
@@ -13,7 +14,7 @@ const CourseCard = ({course}) => {
     <div className="card-actions items-center justify-end ">
     <p className='flex items-center '> <FaStar/> <span className='ml-1'>{ratings}</span></p>
     <p>Price: {price}</p>
-      <button  className="btn btn-black">Buy Now</button>
+     <Link to={`/courses/${id}`}><button className="btn btn-black">Buy Now</button></Link> 
     </div>
   </div>
 </div>
