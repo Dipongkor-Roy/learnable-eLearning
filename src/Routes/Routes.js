@@ -14,16 +14,17 @@ export const router = createBrowserRouter([{
             element:<Hero></Hero>,  
         },
         {
-            path:'/courses',
-            element:<Courses></Courses>
-        },
-        {
             path:'/logIn',
             element:<LogIn></LogIn>
         },
         {
             path:'/signUp',
             element:<Register></Register>
+        },
+        {
+            path:'/courses',
+            element:<Courses></Courses>,
+            loader:()=>fetch('https://learnable-e-learning-server.vercel.app/courses')
         }
         
     ]
