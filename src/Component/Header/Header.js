@@ -41,8 +41,8 @@ const Header = () => {
             </li>
           </ul>
         </div>
-        <Link to='/' className="btn btn-ghost normal-case   text-indigo-400 text-xl">
-          Learnable
+        <Link to='/' className="btn  btn-ghost  ">
+          <p className="normal-case  text-indigo-400 text-xl ">Learnable</p>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -63,9 +63,11 @@ const Header = () => {
           </li>
         </ul>
       </div>
+      <div className="mx-1 ">
+          
+        </div>
       <div className="navbar-end">
-        <div className="mx-1 ">
-          <label className="swap swap-rotate mr-2 items-center">
+      <label className="swap swap-rotate mr-2 items-center">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
 
@@ -87,13 +89,19 @@ const Header = () => {
               <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
             </svg>
           </label>
-        </div>
-        <Link to='logIn' className="btn mr-2 text-1xl text-indigo-400 p-4 text-thin rounded-2xl normal-case hover:bg-base-100 hover:text-black ">
+          <div className="dropdown dropdown-end">
+  <label tabIndex={0} className="btn text-white bg-indigo-400 hover:bg-indigo-500 m-1">Join Us</label>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+  <Link to='logIn' className="btn mr-2 mb-2 text-1xl text-indigo-400 p-4 text-thin rounded-2xl normal-case hover:bg-base-100 hover:text-black ">
           Log In
         </Link>
         <Link to='/signUp' className="btn mr-3 text-1xl text-indigo-400 p-4 text-thin rounded-2xl normal-case hover:bg-base-100 hover:text-black ">
           Sign Up
         </Link>
+  </ul>
+</div>
+       
+       
       </div>
     </div>
   );

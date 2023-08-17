@@ -8,10 +8,10 @@ const Hero = () => {
       <div className="hero hero-top bg-base-100">
         <div className=" flex flex-col lg:flex-row ">
           <div className="text-container w-1/2">
-            <h1 className="lg:text-5xl text-[40px] font-normal">
-              Find Suitable <br /> courses from the <br /> best mentors
+            <h1 className="whitespace-nowrap  text-4xl md:text-4xl lg:text-5xl ">
+ Find Suitable <br /> courses from the <br /> best mentors
             </h1>
-            <p className="py-6 font-light">
+            <p className="py-6 font-light text-medium">
               Discover a world of{" "}
               <span className="text-indigo-400 font-normal">knowlege</span> at
               your fingertips and embark on <br /> a transformative learning
