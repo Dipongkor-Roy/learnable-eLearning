@@ -1,15 +1,15 @@
-import React, { useContext} from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../Contexts/UserContext";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
   const { createUser, profileUpdate } = useContext(AuthContext);
-  
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name=form.name.value;
+    const name = form.name.value;
     const email = form.email.value;
     const currpassword = form.pass.value;
     createUser(email, currpassword)
@@ -17,12 +17,15 @@ const Register = () => {
         const user = result.user;
         handleToast(user);
         form.reset();
+        setError("");
         updateProfile(name);
       })
-      .catch((e) => console.log(e));
-     
+      .catch((e) => {
+        console.log(e);
+        setError(e.message);
+      });
   };
- 
+
   const handleToast = (user) => {
     if (user) {
       toast.success("Successfully Account Created");
@@ -30,14 +33,12 @@ const Register = () => {
       toast.error("Something Wrong Please Check");
     }
   };
-  const updateProfile=(name)=>{
-    const profile={  displayName:name,
-      photoURL: ''
-    }
+  const updateProfile = (name) => {
+    const profile = { displayName: name, photoURL: "" };
     profileUpdate(profile)
-    .then(()=>{})
-    .catch(e=>console.error(e));
-  }
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
   return (
     <form onSubmit={handleSubmit}>
       <div className="hero mt-4 min-h-screen bg-base-100">
@@ -92,6 +93,7 @@ const Register = () => {
                   Sign Up
                 </button>
               </div>
+              <p>{error}</p>
             </div>
           </div>
         </div>
