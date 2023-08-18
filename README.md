@@ -2,7 +2,8 @@
 
 Welcome to Learnable, an innovative e-learning platform designed to provide an engaging and interactive learning experience. This project is built using cutting-edge technologies to ensure a seamless and effective learning journey.
 
-![Learnable Banner](demo/learnable_banner.jpg)
+!![Screenshot 2023-08-18 at 12 05 06 AM](https://github.com/Dipongkor-Roy/learnable-eLearning/assets/108410160/533fc336-13a0-4d18-838f-880cabdf5d57)
+
 
 ## Table of Contents
 
@@ -51,6 +52,8 @@ Learnable offers a range of features to enhance the learning experience:
 ## Demo
 
 Here's a glimpse of what Learnable looks like:
+
+![Screenshot 2023-08-18 at 12 05 06 AM](https://github.com/Dipongkor-Roy/learnable-eLearning/assets/108410160/7596c640-3314-4d7a-8cdc-23a89d9dbe31)
 
 
 ## Live Link
