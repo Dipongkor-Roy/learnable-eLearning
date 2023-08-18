@@ -1,22 +1,32 @@
 import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/UserContext';
+import { toast } from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
   const [error, setError] = useState("");
-  const {logInViaEmai}=useContext(AuthContext);
-  
+  const {logInViaEmail}=useContext(AuthContext);
+  const navigate = useNavigate();
+  const location =useLocation();
+  const from=location.state?.from?.pathname || "/";
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    logInViaEmai(email, password)
+    logInViaEmail(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
         setError("");
+        if(user){
+          toast.success('Successfully Log In' );
+          navigate(from,{replace:true})
+         }else{
+          toast.error("Somthing is wrong check your email and password");
+         }
       })
       .catch((e) => {
         console.error(e);

@@ -1,8 +1,47 @@
 import React from 'react';
+import UserContext, { AuthContext } from '../../Contexts/UserContext';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
+  const {createUser,profileUpdate}=UserContext(AuthContext);
+
+  const handleSubmit=(event)=>{
+  
+    event.preventDefault();
+    const form=event.target;
+    const name=form.name.value;
+    const email=form.email.value;
+    const password=form.Password.value;
+    updatedProfile(name)
+    createUser(email,password)
+    .then((result)=>{
+      const user=result.user;
+      console.log(user)
+      handleToast(user)
+      form.reset();
+    })
+    .catch(e=>console.log(e))
+  }
+  const updatedProfile=(name)=>{
+    const profile={displayName:name};
+    console.log(name)
+    profileUpdate(profile)
+    .then(()=>{})
+    .catch(e=>{
+      console.log(e)
+    
+    })
+  }
+  const handleToast=(user)=>{
+    if(user){
+      toast.success('Successfully Account Created');
+    }else{
+      toast.error("Something Wrong Please Check");
+    }
+  }
     return (
-        <div className="hero mt-4 min-h-screen bg-base-100">
+     <form onSubmit={handleSubmit}>
+         <div className="hero mt-4 min-h-screen bg-base-100">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">SignUp <span className='text-indigo-400'>now!</span></h1>
@@ -38,6 +77,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+     </form>
     );
 };
 
