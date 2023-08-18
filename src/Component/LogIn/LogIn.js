@@ -7,9 +7,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const LogIn = () => {
   const [error, setError] = useState("");
   const {logInViaEmail,googleLog}=useContext(AuthContext);
+
+
   const navigate = useNavigate();
   const location =useLocation();
   const from=location.state?.from?.pathname || "/";
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -22,7 +25,7 @@ const LogIn = () => {
         setError("");
         if(user){
           toast.success('Successfully Log In' );
-          navigate(from,{replace:true})
+          navigate(from, { replace: true });
          }else{
           toast.error("Somthing is wrong check your email and password");
          }
