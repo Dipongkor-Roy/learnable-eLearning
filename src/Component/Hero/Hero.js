@@ -4,7 +4,7 @@ import "./Hero.css";
 import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 const Hero = () => {
   return (
-    <section className="">
+   
       <div className="hero hero-top bg-base-100">
         <div className=" flex flex-col lg:flex-row ">
           <div className="text-container w-1/2">
@@ -97,7 +97,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+
   );
 };
 
