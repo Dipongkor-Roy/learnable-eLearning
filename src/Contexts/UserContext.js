@@ -12,15 +12,19 @@ const UserContext = ({children}) => {
     const logInViaEmail=(email,password)=>{
         return signInWithEmailAndPassword(auth,email,password);
     }
+
     const createUser=(email,password)=>{
         return createUserWithEmailAndPassword(auth,email,password);
     }
+
     const logOut=()=>{
         return signOut(auth)
     }
+
     const profileUpdate=(profile)=>{
         return updateProfile(auth.currentUser,profile)
     }
+    
     useEffect(()=>{
         const unSubscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser);

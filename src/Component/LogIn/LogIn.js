@@ -14,11 +14,10 @@ const LogIn = () => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
-    const password = form.password.value;
+    const password = form.pass.value;
     logInViaEmail(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         form.reset();
         setError("");
         if(user){
@@ -53,7 +52,7 @@ const LogIn = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" name="password"placeholder="Password" className="input input-bordered" />
+                <input type="password" name="pass"placeholder="Password" className="input input-bordered" />
                 <label className="label">
                   
                 </label>

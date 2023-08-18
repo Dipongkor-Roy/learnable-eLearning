@@ -7,6 +7,7 @@ import Register from "../Component/Register/Register";
 import CardDetails from "../Component/CardDetails/CardDetails";
 import Cart from "../Component/Cart/Cart";
 import Blog from "../Component/Blog/Blog";
+import PrivateRoute from "../Routes/PrivateRoute";
 
 export const router = createBrowserRouter([{
     path:'/',
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([{
         },
         {
             path:'/cart/:id',
-            element:<Cart></Cart>,
+            element:<PrivateRoute><Cart></Cart></PrivateRoute>,
             loader:({params})=>fetch(`https://learnable-e-learning-server.vercel.app/courses/${params.id}`)
         },{
             path:'/blog',
