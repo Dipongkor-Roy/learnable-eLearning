@@ -4,12 +4,12 @@ import { AuthContext } from "../../Contexts/UserContext";
 import { FaUserAlt } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 const Header = () => {
-  const { user ,logOut} = useContext(AuthContext);
-  const handleLogOut=()=>{
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
     logOut()
-    .then(()=>{})
-    .catch(e=>console.error(e))
-   }
+      .then(() => {})
+      .catch((e) => console.error(e));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -98,18 +98,20 @@ const Header = () => {
         </label>
         {/* light dark end */}
         {user ? (
-         <>
-          <div className="tooltip tooltip-left"  data-tip={user.displayName}>
-            {" "}
-            <button className="btn text-white bg-indigo-500 hover:bg-indigo-500 m-1">
-              <FaUserAlt />
-              <Link onClick={handleLogOut} className="mx-1 text-2xl rounded-sm text-black  m-2"><BiLogOut/></Link>
-            </button>
-           
-          </div>
-          
+          <>
+            <div className="tooltip tooltip-left" data-tip={user.displayName}>
+              {" "}
+              <button className="btn text-white bg-indigo-500 hover:bg-indigo-500 m-1">
+                <FaUserAlt />
+                <Link
+                  onClick={handleLogOut}
+                  className="mx-1 text-2xl rounded-sm text-black  m-2"
+                >
+                  <BiLogOut />
+                </Link>
+              </button>
+            </div>
           </>
-       
         ) : (
           <>
             <div className="dropdown dropdown-end">

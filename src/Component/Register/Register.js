@@ -62,6 +62,7 @@ const Register = () => {
                   name="name"
                   placeholder="Name"
                   className="input input-bordered"
+                  required
                 />
               </div>
               <div className="form-control">
