@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Contexts/UserContext';
 
 const LogIn = () => {
+  const [error, setError] = useState("");
+  const {logInViaEmai}=useContext(AuthContext);
+  
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    logInViaEmai(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        setError("");
+      })
+      .catch((e) => {
+        console.error(e);
+        setError(e.message);
+      })
+    };
     return (
+       <form onSubmit={handleSubmit}>
         <div className="hero mt-4 min-h-screen bg-base-100">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
@@ -15,13 +37,13 @@ const LogIn = () => {
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="text" placeholder="Email" className="input input-bordered" />
+                <input type="text" name='email' placeholder="Email" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="Password" className="input input-bordered" />
+                <input type="text" name="password"placeholder="Password" className="input input-bordered" />
                 <label className="label">
                   
                 </label>
@@ -36,11 +58,14 @@ const LogIn = () => {
                 <button className="btn text-white   bg-indigo-400 hover:bg-indigo-500 ml-5 lg:ml-0"><FaGithub/>Github</button>
                 </div>
              </div>
+             <p>{error}</p>
             </div>
           </div>
         </div>
       </div>
+      </form>
     );
+   
 };
 
 export default LogIn;
