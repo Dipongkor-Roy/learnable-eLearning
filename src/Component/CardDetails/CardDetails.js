@@ -5,7 +5,7 @@ const CardDetails = () => {
   const course = useLoaderData();
 
   return (
-    <div className="mt-3 ">
+    <div className="mt-2 ">
       <div className="h-[10vh] text-center bg-base-200 ">
         <p className="text-3xl py-5 font-semibold">{course.title}</p>
       </div>
