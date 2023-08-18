@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
   const [error, setError] = useState("");
-  const {logInViaEmail}=useContext(AuthContext);
+  const {logInViaEmail,googleLog}=useContext(AuthContext);
   const navigate = useNavigate();
   const location =useLocation();
   const from=location.state?.from?.pathname || "/";
@@ -32,6 +32,11 @@ const LogIn = () => {
         setError(e.message);
       })
     };
+    const handleGoogle=()=>{
+      googleLog()
+      .then(()=>{})
+      .catch(error=>console.error(error))
+    }
     return (
        <form onSubmit={handleSubmit}>
         <div className="hero mt-4 min-h-screen bg-base-100">
@@ -63,7 +68,7 @@ const LogIn = () => {
              <div className='text-center font-light'>
                 <p>Or <span>Log In Via</span></p>
                 <div className='mt-3 flex justify-evenly'>
-                <button className="btn text-white  bg-indigo-400 hover:bg-indigo-500"><FaGoogle/> Google</button>
+                <button onClick={handleGoogle} className="btn text-white  bg-indigo-400 hover:bg-indigo-500"><FaGoogle/> Google</button>
                 <button className="btn text-white   bg-indigo-400 hover:bg-indigo-500 ml-5 lg:ml-0"><FaGithub/>Github</button>
                 </div>
              </div>

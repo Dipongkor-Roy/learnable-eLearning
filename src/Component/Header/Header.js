@@ -99,7 +99,7 @@ const Header = () => {
         {/* light dark end */}
         {user ? (
          <>
-          <div className="tooltip tooltip-bottom"  data-tip={user.displayName}>
+          <div className="tooltip tooltip-left"  data-tip={user.displayName}>
             {" "}
             <button className="btn text-white bg-indigo-500 hover:bg-indigo-500 m-1">
               <FaUserAlt />
