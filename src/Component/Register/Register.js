@@ -6,12 +6,11 @@ const Register = () => {
   const {createUser,profileUpdate}=UserContext(AuthContext);
 
   const handleSubmit=(event)=>{
-  
     event.preventDefault();
     const form=event.target;
     const name=form.name.value;
     const email=form.email.value;
-    const password=form.Password.value;
+    const password=form.password.value;
     updatedProfile(name)
     createUser(email,password)
     .then((result)=>{
@@ -53,25 +52,25 @@ const Register = () => {
                 <label className="label">
                   <span className="label-text">Name</span>
                 </label>
-                <input type="text" placeholder="Name" className="input input-bordered" />
+                <input type="text" name='name' placeholder="Name" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
-                <input type="text" placeholder="Email" className="input input-bordered" />
+                <input type="email" name='email' placeholder="Email" className="input input-bordered" required/>
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input type="text" placeholder="Password" className="input input-bordered" />
+                <input type="password" name='password' placeholder="Password"  className="input input-bordered" />
                 <label className="label">
                   
                 </label>
               </div>
               <div className="form-control mt-3">
-                <button className="btn text-white bg-indigo-400 hover:bg-indigo-500">Login</button>
+                <button className="btn text-white bg-indigo-400 hover:bg-indigo-500">Sign Up</button>
               </div>
             </div>
           </div>
